@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        @font-face {
+            font-family: 'Inconsolata';
+            src: url('/Users/otistamp/Library/Fonts/Inconsolata-VariableFont_wdth,wght.ttf') format('truetype');
+            font-weight: 100 900;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inconsolata', monospace;
+            display: flex;
+            width: 100vw;
+            min-height: 100vh;
+        }
+
+        .panel {
+            width: 50%;
+            min-height: 100vh;
+            padding: 32pt 24pt;
+        }
+
+        .left  { background: #1e1e2e; }
+        .right { background: #eff1f5; }
+
+        .panel-title {
+            font-size: 11pt;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            margin-bottom: 20pt;
+            padding-bottom: 8pt;
+        }
+
+        .left  .panel-title { color: #cdd6f4; border-bottom: 1px solid #313244; }
+        .right .panel-title { color: #4c4f69; border-bottom: 1px solid #ccd0da; }
+
+        .swatch {
+            font-size: 10pt;
+            font-weight: 600;
+            padding: 3pt 0;
+            display: flex;
+            align-items: center;
+            gap: 10pt;
+            cursor: pointer;
+        }
+
+        .swatch:hover { opacity: 0.75; }
+
+        .swatch .dot {
+            width: 10pt;
+            height: 10pt;
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+
+        .hex {
+            font-size: 8pt;
+            font-weight: 400;
+            opacity: 0.6;
+        }
+    </style>
+</head>
+<body>
+
+<div class="panel left">
+    <div class="panel-title"># Catppuccin Mocha</div>
+
+    <div class="swatch"><div class="dot" style="background:#f5e0dc"></div><span style="color:#f5e0dc">rosewater</span> <span class="hex" style="color:#f5e0dc">#f5e0dc</span></div>
+    <div class="swatch"><div class="dot" style="background:#f2cdcd"></div><span style="color:#f2cdcd">flamingo</span>  <span class="hex" style="color:#f2cdcd">#f2cdcd</span></div>
+    <div class="swatch"><div class="dot" style="background:#f5c2e7"></div><span style="color:#f5c2e7">pink</span>      <span class="hex" style="color:#f5c2e7">#f5c2e7</span></div>
+    <div class="swatch"><div class="dot" style="background:#cba6f7"></div><span style="color:#cba6f7">mauve</span>     <span class="hex" style="color:#cba6f7">#cba6f7</span></div>
+    <div class="swatch"><div class="dot" style="background:#f38ba8"></div><span style="color:#f38ba8">red</span>       <span class="hex" style="color:#f38ba8">#f38ba8</span></div>
+    <div class="swatch"><div class="dot" style="background:#eba0ac"></div><span style="color:#eba0ac">maroon</span>    <span class="hex" style="color:#eba0ac">#eba0ac</span></div>
+    <div class="swatch"><div class="dot" style="background:#fab387"></div><span style="color:#fab387">peach</span>     <span class="hex" style="color:#fab387">#fab387</span></div>
+    <div class="swatch"><div class="dot" style="background:#f9e2af"></div><span style="color:#f9e2af">yellow</span>    <span class="hex" style="color:#f9e2af">#f9e2af</span></div>
+    <div class="swatch"><div class="dot" style="background:#a6e3a1"></div><span style="color:#a6e3a1">green</span>     <span class="hex" style="color:#a6e3a1">#a6e3a1</span></div>
+    <div class="swatch"><div class="dot" style="background:#94e2d5"></div><span style="color:#94e2d5">teal</span>      <span class="hex" style="color:#94e2d5">#94e2d5</span></div>
+    <div class="swatch"><div class="dot" style="background:#89dceb"></div><span style="color:#89dceb">sky</span>       <span class="hex" style="color:#89dceb">#89dceb</span></div>
+    <div class="swatch"><div class="dot" style="background:#74c7ec"></div><span style="color:#74c7ec">sapphire</span>  <span class="hex" style="color:#74c7ec">#74c7ec</span></div>
+    <div class="swatch"><div class="dot" style="background:#89b4fa"></div><span style="color:#89b4fa">blue</span>      <span class="hex" style="color:#89b4fa">#89b4fa</span></div>
+    <div class="swatch"><div class="dot" style="background:#b4befe"></div><span style="color:#b4befe">lavender</span>  <span class="hex" style="color:#b4befe">#b4befe</span></div>
+
+    <div style="margin-top:16pt; border-top: 1px solid #313244; padding-top:16pt;">
+    <div class="swatch"><div class="dot" style="background:#cdd6f4"></div><span style="color:#cdd6f4">text</span>      <span class="hex" style="color:#cdd6f4">#cdd6f4</span></div>
+    <div class="swatch"><div class="dot" style="background:#bac2de"></div><span style="color:#bac2de">subtext1</span>  <span class="hex" style="color:#bac2de">#bac2de</span></div>
+    <div class="swatch"><div class="dot" style="background:#a6adc8"></div><span style="color:#a6adc8">subtext0</span>  <span class="hex" style="color:#a6adc8">#a6adc8</span></div>
+    <div class="swatch"><div class="dot" style="background:#9399b2"></div><span style="color:#9399b2">overlay2</span>  <span class="hex" style="color:#9399b2">#9399b2</span></div>
+    <div class="swatch"><div class="dot" style="background:#7f849c"></div><span style="color:#7f849c">overlay1</span>  <span class="hex" style="color:#7f849c">#7f849c</span></div>
+    <div class="swatch"><div class="dot" style="background:#6c7086"></div><span style="color:#6c7086">overlay0</span>  <span class="hex" style="color:#6c7086">#6c7086</span></div>
+    <div class="swatch"><div class="dot" style="background:#585b70; border:1px solid #585b70"></div><span style="color:#585b70">surface2</span>  <span class="hex" style="color:#585b70">#585b70</span></div>
+    <div class="swatch"><div class="dot" style="background:#45475a; border:1px solid #45475a"></div><span style="color:#45475a">surface1</span>  <span class="hex" style="color:#45475a">#45475a</span></div>
+    <div class="swatch"><div class="dot" style="background:#313244; border:1px solid #45475a"></div><span style="color:#313244">surface0</span>  <span class="hex" style="color:#313244">#313244</span></div>
+    </div>
+</div>
+
+<div class="panel right">
+    <div class="panel-title"># Catppuccin Latte</div>
+
+    <div class="swatch"><div class="dot" style="background:#dc8a78"></div><span style="color:#dc8a78">rosewater</span> <span class="hex" style="color:#dc8a78">#dc8a78</span></div>
+    <div class="swatch"><div class="dot" style="background:#dd7878"></div><span style="color:#dd7878">flamingo</span>  <span class="hex" style="color:#dd7878">#dd7878</span></div>
+    <div class="swatch"><div class="dot" style="background:#ea76cb"></div><span style="color:#ea76cb">pink</span>      <span class="hex" style="color:#ea76cb">#ea76cb</span></div>
+    <div class="swatch"><div class="dot" style="background:#8839ef"></div><span style="color:#8839ef">mauve</span>     <span class="hex" style="color:#8839ef">#8839ef</span></div>
+    <div class="swatch"><div class="dot" style="background:#d20f39"></div><span style="color:#d20f39">red</span>       <span class="hex" style="color:#d20f39">#d20f39</span></div>
+    <div class="swatch"><div class="dot" style="background:#e64553"></div><span style="color:#e64553">maroon</span>    <span class="hex" style="color:#e64553">#e64553</span></div>
+    <div class="swatch"><div class="dot" style="background:#fe640b"></div><span style="color:#fe640b">peach</span>     <span class="hex" style="color:#fe640b">#fe640b</span></div>
+    <div class="swatch"><div class="dot" style="background:#df8e1d"></div><span style="color:#df8e1d">yellow</span>    <span class="hex" style="color:#df8e1d">#df8e1d</span></div>
+    <div class="swatch"><div class="dot" style="background:#40a02b"></div><span style="color:#40a02b">green</span>     <span class="hex" style="color:#40a02b">#40a02b</span></div>
+    <div class="swatch"><div class="dot" style="background:#179299"></div><span style="color:#179299">teal</span>      <span class="hex" style="color:#179299">#179299</span></div>
+    <div class="swatch"><div class="dot" style="background:#04a5e5"></div><span style="color:#04a5e5">sky</span>       <span class="hex" style="color:#04a5e5">#04a5e5</span></div>
+    <div class="swatch"><div class="dot" style="background:#209fb5"></div><span style="color:#209fb5">sapphire</span>  <span class="hex" style="color:#209fb5">#209fb5</span></div>
+    <div class="swatch"><div class="dot" style="background:#1e66f5"></div><span style="color:#1e66f5">blue</span>      <span class="hex" style="color:#1e66f5">#1e66f5</span></div>
+    <div class="swatch"><div class="dot" style="background:#7287fd"></div><span style="color:#7287fd">lavender</span>  <span class="hex" style="color:#7287fd">#7287fd</span></div>
+
+    <div style="margin-top:16pt; border-top: 1px solid #ccd0da; padding-top:16pt;">
+    <div class="swatch"><div class="dot" style="background:#4c4f69"></div><span style="color:#4c4f69">text</span>      <span class="hex" style="color:#4c4f69">#4c4f69</span></div>
+    <div class="swatch"><div class="dot" style="background:#5c5f77"></div><span style="color:#5c5f77">subtext1</span>  <span class="hex" style="color:#5c5f77">#5c5f77</span></div>
+    <div class="swatch"><div class="dot" style="background:#6c6f85"></div><span style="color:#6c6f85">subtext0</span>  <span class="hex" style="color:#6c6f85">#6c6f85</span></div>
+    <div class="swatch"><div class="dot" style="background:#7c7f93"></div><span style="color:#7c7f93">overlay2</span>  <span class="hex" style="color:#7c7f93">#7c7f93</span></div>
+    <div class="swatch"><div class="dot" style="background:#8c8fa1"></div><span style="color:#8c8fa1">overlay1</span>  <span class="hex" style="color:#8c8fa1">#8c8fa1</span></div>
+    <div class="swatch"><div class="dot" style="background:#9ca0b0"></div><span style="color:#9ca0b0">overlay0</span>  <span class="hex" style="color:#9ca0b0">#9ca0b0</span></div>
+    <div class="swatch"><div class="dot" style="background:#acb0be"></div><span style="color:#acb0be">surface2</span>  <span class="hex" style="color:#acb0be">#acb0be</span></div>
+    <div class="swatch"><div class="dot" style="background:#bcc0cc"></div><span style="color:#bcc0cc">surface1</span>  <span class="hex" style="color:#bcc0cc">#bcc0cc</span></div>
+    <div class="swatch"><div class="dot" style="background:#ccd0da"></div><span style="color:#ccd0da">surface0</span>  <span class="hex" style="color:#ccd0da">#ccd0da</span></div>
+    </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        @font-face {
+            font-family: 'Inconsolata';
+            src: url('fonts/Inconsolata.ttf') format('truetype');
+            font-weight: 100 900;
+            font-style: normal;
+        }
+        :root {
+            /* Catppuccin Mocha - full palette */
+            --mocha-rosewater: #f5e0dc;
+            --mocha-flamingo:  #f2cdcd;
+            --mocha-pink:      #f5c2e7;
+            --mocha-mauve:     #cba6f7;
+            --mocha-red:       #f38ba8;
+            --mocha-maroon:    #eba0ac;
+            --mocha-peach:     #fab387;
+            --mocha-yellow:    #f9e2af;
+            --mocha-green:     #a6e3a1;
+            --mocha-teal:      #94e2d5;
+            --mocha-sky:       #89dceb;
+            --mocha-sapphire:  #74c7ec;
+            --mocha-blue:      #89b4fa;
+            --mocha-lavender:  #b4befe;
+            --mocha-text:      #cdd6f4;
+            --mocha-subtext1:  #bac2de;
+            --mocha-subtext0:  #a6adc8;
+            --mocha-overlay2:  #9399b2;
+            --mocha-overlay1:  #7f849c;
+            --mocha-overlay0:  #6c7086;
+            --mocha-surface2:  #585b70;
+            --mocha-surface1:  #45475a;
+            --mocha-surface0:  #313244;
+            --mocha-base:      #1e1e2e;
+            --mocha-mantle:    #181825;
+            --mocha-crust:     #11111b;
+
+            /* Catppuccin Latte - full palette */
+            --latte-rosewater: #dc8a78;
+            --latte-flamingo:  #dd7878;
+            --latte-pink:      #ea76cb;
+            --latte-mauve:     #8839ef;
+            --latte-red:       #d20f39;
+            --latte-maroon:    #e64553;
+            --latte-peach:     #fe640b;
+            --latte-yellow:    #df8e1d;
+            --latte-green:     #40a02b;
+            --latte-teal:      #179299;
+            --latte-sky:       #04a5e5;
+            --latte-sapphire:  #209fb5;
+            --latte-blue:      #1e66f5;
+            --latte-lavender:  #7287fd;
+            --latte-text:      #4c4f69;
+            --latte-subtext1:  #5c5f77;
+            --latte-subtext0:  #6c6f85;
+            --latte-overlay2:  #7c7f93;
+            --latte-overlay1:  #8c8fa1;
+            --latte-overlay0:  #9ca0b0;
+            --latte-surface2:  #acb0be;
+            --latte-surface1:  #bcc0cc;
+            --latte-surface0:  #ccd0da;
+            --latte-base:      #eff1f5;
+            --latte-mantle:    #e6e9ef;
+            --latte-crust:     #dce0e8;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        @page { size: letter; margin: 0; }
+
+        body {
+            font-family: 'Inconsolata', monospace;
+            font-size: 8pt;
+            line-height: 1.3;
+            width: 8.5in;
+            height: 11in;
+            overflow: hidden;
+        }
+
+        .page {
+            display: flex;
+            width: 8.5in;
+            height: 11in;
+            overflow: hidden;
+        }
+
+        /* ---- LEFT PANEL (Mocha) ---- */
+
+        .left {
+            width: 30%;
+            min-height: 100%;
+            background: var(--mocha-base);
+            color: var(--mocha-text);
+            padding: 12pt 12pt;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 8pt;
+        }
+
+        .name {
+            font-size: 22pt;
+            font-weight: 700;
+            color: var(--mocha-green);
+            line-height: 1.0;
+        }
+
+        .tagline {
+            font-size: 8.5pt;
+            color: var(--mocha-maroon);
+            margin-top: 4pt;
+        }
+
+        .contact {
+            margin-top: 5pt;
+            font-size: 7pt;
+            color: var(--mocha-subtext0);
+            display: flex;
+            flex-direction: column;
+            gap: 2pt;
+        }
+
+        .contact a { color: var(--mocha-peach); text-decoration: none; }
+        .contact span:nth-child(1) { color: var(--mocha-sapphire); }
+        .contact span:nth-child(2) { color: var(--mocha-lavender); }
+        .contact span:nth-child(3) { color: var(--mocha-yellow); }
+        .present { color: var(--latte-green); font-weight: 600; }
+
+        .left-section {
+            border-top: 1px solid var(--mocha-surface0);
+            padding-top: 6pt;
+        }
+
+        .left-label {
+            font-size: 6.5pt;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--mocha-mauve);
+            margin-bottom: 4pt;
+        }
+
+        .left-label::before { content: '# '; color: var(--mocha-teal); }
+
+        .summary-text {
+            font-size: 7.5pt;
+            color: var(--mocha-subtext1);
+            line-height: 1.45;
+        }
+
+        .strength {
+            font-size: 7.5pt;
+            color: var(--mocha-text);
+            padding: 1pt 0;
+            display: flex;
+            align-items: baseline;
+            gap: 4pt;
+        }
+
+        .strength::before {
+            content: '>';
+            color: var(--mocha-teal);
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        .tech-group { margin-bottom: 4pt; }
+        .tech-group:last-child { margin-bottom: 0; }
+
+        .tech-label {
+            font-size: 7pt;
+            font-weight: 600;
+            color: var(--mocha-blue);
+            margin-bottom: 1pt;
+        }
+
+        .tech-value {
+            font-size: 7pt;
+            color: var(--mocha-subtext1);
+            line-height: 1.4;
+        }
+
+        .edu-school {
+            font-size: 8pt;
+            font-weight: 600;
+            color: var(--mocha-text);
+        }
+
+        .edu-detail {
+            font-size: 7pt;
+            color: var(--mocha-subtext0);
+            margin-top: 2pt;
+            line-height: 1.45;
+        }
+
+        /* ---- RIGHT PANEL (Latte) ---- */
+
+        .right {
+            width: 70%;
+            min-height: 100%;
+            background: var(--latte-base);
+            color: var(--latte-text);
+            padding: 12pt 14pt;
+            overflow: hidden;
+        }
+
+        .right-label {
+            font-size: 6.5pt;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--latte-mauve);
+            padding-bottom: 4pt;
+            border-bottom: 1px solid var(--latte-surface0);
+            margin-bottom: 6pt;
+        }
+
+        .right-label::before { content: '# '; color: var(--latte-teal); }
+
+        .job {
+            margin-bottom: 5pt;
+            padding-bottom: 5pt;
+            border-bottom: 1px solid var(--latte-surface0);
+        }
+
+        .job:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .job-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+        }
+
+        .job-company {
+            font-size: 9.5pt;
+            font-weight: 700;
+            color: var(--latte-blue);
+        }
+
+        .job-location {
+            font-size: 7pt;
+            color: var(--latte-subtext0);
+        }
+
+        .job-mid {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-top: 1pt;
+            margin-bottom: 2pt;
+        }
+
+        .job-title {
+            font-size: 8.5pt;
+            font-weight: 600;
+            color: var(--latte-mauve);
+        }
+
+        .job-dates {
+            font-size: 7pt;
+            color: var(--latte-subtext0);
+        }
+
+        .job-desc {
+            font-size: 7.5pt;
+            color: var(--latte-subtext1);
+            margin-bottom: 3pt;
+            line-height: 1.3;
+        }
+
+        ul.bullets { list-style: none; }
+
+        ul.bullets li {
+            font-size: 7.5pt;
+            color: var(--latte-text);
+            padding: 0.5pt 0 0.5pt 11pt;
+            position: relative;
+            line-height: 1.2;
+        }
+
+        ul.bullets li::before {
+            content: '>';
+            color: var(--latte-teal);
+            font-weight: 700;
+            position: absolute;
+            left: 0;
+        }
+    </style>
+</head>
+<body>
+<div class="page">
+
+    <!-- LEFT PANEL -->
+    <div class="left">
+        <div>
+            <div class="name">Otis<br>Stamp</div>
+            <div class="tagline">Principal Backend Engineer</div>
+            <div class="contact">
+                <span>Gainesville, FL</span>
+                <span>786.280.9932</span>
+                <span>otistamp@gmail.com</span>
+                <a href="https://github.com/otistamp">github.com/otistamp</a>
+            </div>
+        </div>
+
+        <div class="left-section">
+            <div class="left-label">Summary</div>
+            <div class="summary-text">Forward-thinking engineer with an unfaltering desire to improve the performance and reliability of backend systems at scale. Proven success taking products from concept to production, designing distributed architectures, and leveraging the right technology to deliver functionality and insight across complex platforms.</div>
+        </div>
+
+        <div class="left-section">
+            <div class="left-label">Strengths</div>
+            <div class="strength">Backend Service &amp; Application Development</div>
+            <div class="strength">Event-Driven Architecture</div>
+            <div class="strength">Async Processing &amp; Worker Queues</div>
+            <div class="strength">Cloud DevOps (AWS / Azure / GCP)</div>
+            <div class="strength">Docker &amp; Kubernetes</div>
+            <div class="strength">CI/CD Pipelines</div>
+        </div>
+
+        <div class="left-section">
+            <div class="left-label">Technology</div>
+            <div class="tech-group">
+                <div class="tech-label">Languages</div>
+                <div class="tech-value">Python, JavaScript, TypeScript, BASH, HTML, CSS, Rust, Java</div>
+            </div>
+            <div class="tech-group">
+                <div class="tech-label">Datastores</div>
+                <div class="tech-value">MySQL, Postgres, Elasticsearch, MongoDB, Redis, Hadoop</div>
+            </div>
+            <div class="tech-group">
+                <div class="tech-label">Infrastructure</div>
+                <div class="tech-value">Kubernetes, Helm, Terraform, Docker, GitHub Actions, GitLab CI</div>
+            </div>
+            <div class="tech-group">
+                <div class="tech-label">Messaging / Queues</div>
+                <div class="tech-value">AWS EventBridge, SQS, RabbitMQ, Redis</div>
+            </div>
+            <div class="tech-group">
+                <div class="tech-label">Frameworks</div>
+                <div class="tech-value">Django REST Framework</div>
+            </div>
+        </div>
+
+        <div class="left-section">
+            <div class="left-label">Education</div>
+            <div class="edu-school">University of Florida</div>
+            <div class="edu-detail">Gainesville, FL<br>Computer Engineering<br>2006 - 2009</div>
+        </div>
+    </div>
+
+    <!-- RIGHT PANEL -->
+    <div class="right">
+        <div class="right-label">Experience</div>
+
+        <div class="job">
+            <div class="job-top">
+                <span class="job-company">Feathr</span>
+                <span class="job-location">Gainesville, FL / Remote</span>
+            </div>
+            <div class="job-mid">
+                <span class="job-title">Principal Backend Engineer</span>
+                <span class="job-dates">May 2025 - <span class="present">Present</span></span>
+            </div>
+            <div class="job-desc">Member of the fundraising and integrations pod, owning backend systems that extend the Feathr platform for nonprofit audience engagement and donor management.</div>
+            <ul class="bullets">
+                <li>Led greenfield development of an embeddable donation form from concept to launch, deployable on customer websites and fully integrated with the Feathr platform for donor audience segmentation and marketing automation</li>
+                <li>Integrated Stripe as the payment processor, handling donation capture, webhook event processing, and payment lifecycle state management</li>
+                <li>Built the data pipeline ingesting donation events into the Feathr platform, enabling downstream customer engagement workflows triggered by donor activity</li>
+                <li>Designed and built a centralized integrations platform connecting Feathr to third-party CRM vendors including Salesforce, Blackbaud, and Virtuous, enabling reliable data sync for nonprofit customer workflows</li>
+            </ul>
+        </div>
+
+        <div class="job">
+            <div class="job-top">
+                <span class="job-company">Trajector</span>
+                <span class="job-location">Gainesville, FL / Remote</span>
+            </div>
+            <div class="job-mid">
+                <span class="job-title">Senior Software Engineer</span>
+                <span class="job-dates">February 2022 - October 2024</span>
+            </div>
+            <div class="job-desc">Member of the platform engineering team responsible for empowering application engineers to build and run production-quality software at scale.</div>
+            <ul class="bullets">
+                <li>Designed and introduced event-driven architecture across multiple products using AWS EventBridge and SQS, enabling reliable async propagation of state changes between decoupled services</li>
+                <li>Automated AWS and Azure infrastructure-as-code deployment using Terraform, reducing provisioning time and environment drift</li>
+                <li>Built and maintained GitHub Actions CI/CD pipelines covering test, build, and deploy stages</li>
+                <li>Deployed and operated containerized services on Kubernetes via custom Helm charts</li>
+                <li>Built backend infrastructure and async task pipeline for an AI/ML system that parsed veteran questionnaire data, matched responses against qualifying benefits criteria, and generated statements and claims</li>
+            </ul>
+        </div>
+
+        <div class="job">
+            <div class="job-top">
+                <span class="job-company">Feathr</span>
+                <span class="job-location">Gainesville, FL / Remote</span>
+            </div>
+            <div class="job-mid">
+                <span class="job-title">Senior Software Engineer</span>
+                <span class="job-dates">May 2018 - February 2022</span>
+            </div>
+            <div class="job-desc">Developer and maintainer of Python backend microservices serving the digital marketing needs of thousands of customers.</div>
+            <ul class="bullets">
+                <li>Designed and implemented a high-throughput asynchronous job and worker queue in Python (SQS, MongoDB), replacing a synchronous processing bottleneck and enabling reliable at-scale task execution with retry and failure handling</li>
+                <li>Built a Redis-backed caching layer between the application and Elasticsearch, significantly reducing query load and improving response times for high-traffic endpoints</li>
+                <li>Led migration of the entire backend codebase from Python 2.7 to 3.8, updating dependencies and ensuring zero-downtime continuity</li>
+                <li>Dockerized a monolithic application into independently deployable containers, improving service isolation, observability, and deployment reliability</li>
+                <li>Integrated Stripe and Intacct APIs to build a unified payment processing system coordinating billing logic across multiple stakeholder workflows</li>
+            </ul>
+        </div>
+
+        <div class="job">
+            <div class="job-top">
+                <span class="job-company">Peerfit</span>
+                <span class="job-location">Remote</span>
+            </div>
+            <div class="job-mid">
+                <span class="job-title">Lead Backend Engineer</span>
+                <span class="job-dates">July 2016 - April 2018</span>
+            </div>
+            <ul class="bullets">
+                <li>Designed and maintained a RESTful API using Django REST Framework powering a consumer-facing web application</li>
+                <li>Migrated backend infrastructure from AWS EC2 instances to Docker containers deployed in a GCP Kubernetes cluster, improving scalability and operational consistency</li>
+                <li>Introduced CI via GitLab, establishing automated test gates across the engineering team</li>
+                <li>Ported a legacy WordPress site to a Django-backed application, consolidating the codebase and enabling programmatic content management</li>
+            </ul>
+        </div>
+
+        <div class="job">
+            <div class="job-top">
+                <span class="job-company">Stonevault</span>
+                <span class="job-location">Gainesville, FL</span>
+            </div>
+            <div class="job-mid">
+                <span class="job-title">Software Engineer</span>
+                <span class="job-dates">August 2015 - July 2016</span>
+            </div>
+            <ul class="bullets">
+                <li>Integrated a recurring user subscription billing system</li>
+                <li>Implemented a web-based e-signature tool for document execution within the platform</li>
+                <li>Built a merchant payment processing feature enabling CPAs to charge client fees directly through the application</li>
+            </ul>
+        </div>
+
+        <div class="job">
+            <div class="job-top">
+                <span class="job-company">Grooveshark</span>
+                <span class="job-location">Gainesville, FL</span>
+            </div>
+            <div class="job-mid">
+                <span class="job-title">Data Engineer</span>
+                <span class="job-dates">January 2012 - May 2015</span>
+            </div>
+            <ul class="bullets">
+                <li>Designed and implemented the royalty reporting system, aggregating streaming data to generate accurate per-label and per-artist payouts</li>
+                <li>Migrated 8,000 subscribed users between payment processors with zero data loss</li>
+                <li>Built robust ETL pipelines processing millions of stream events per day, supporting licensing compliance and business analytics</li>
+            </ul>
+        </div>
+
+    </div>
+</div>
+</body>
+</html>
