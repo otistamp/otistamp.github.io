@@ -33,7 +33,6 @@ Forward-thinking engineer with an unfaltering desire to improve the performance 
 **Datastores:** MySQL, Postgres, Elasticsearch, MongoDB, Redis, Hadoop
 **Infrastructure:** Kubernetes, Helm, Terraform, Docker, GitHub Actions, GitLab CI
 **Messaging / Queues:** AWS EventBridge, SQS, RabbitMQ, Redis
-**Frameworks:** Django REST Framework
 
 ---
 
