@@ -2,6 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Otis Stamp - Resume</title>
     <style>
         @font-face {
             font-family: 'Inconsolata';
@@ -9,6 +11,7 @@
             font-weight: 100 900;
             font-style: normal;
         }
+
         :root {
             /* Catppuccin Mocha - full palette */
             --mocha-rosewater: #f5e0dc;
@@ -69,95 +72,96 @@
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
-        @page { size: letter; margin: 0; }
+        /* =====================
+           WEB / DEFAULT STYLES
+           ===================== */
 
         body {
             font-family: 'Inconsolata', monospace;
-            font-size: 8pt;
-            line-height: 1.3;
-            width: 8.5in;
-            height: 11in;
-            overflow: hidden;
+            font-size: 11pt;
+            line-height: 1.5;
         }
 
         .page {
             display: flex;
-            width: 8.5in;
-            height: 11in;
-            overflow: hidden;
+            min-height: 100vh;
         }
 
         /* ---- LEFT PANEL (Mocha) ---- */
 
         .left {
             width: 30%;
-            min-height: 100%;
+            min-height: 100vh;
             background: var(--mocha-base);
             color: var(--mocha-text);
-            padding: 12pt 12pt;
+            padding: 40px 24px;
             display: flex;
             flex-direction: column;
             justify-content: center;
-            gap: 8pt;
+            gap: 20px;
+            position: sticky;
+            top: 0;
+            align-self: flex-start;
+            height: 100vh;
         }
 
         .name {
-            font-size: 22pt;
+            font-size: 32pt;
             font-weight: 700;
             color: var(--mocha-green);
             line-height: 1.0;
         }
 
         .tagline {
-            font-size: 8.5pt;
+            font-size: 11pt;
             color: var(--mocha-maroon);
-            margin-top: 4pt;
+            margin-top: 6px;
         }
 
         .contact {
-            margin-top: 5pt;
-            font-size: 7pt;
+            margin-top: 8px;
+            font-size: 9pt;
             color: var(--mocha-subtext0);
             display: flex;
             flex-direction: column;
-            gap: 2pt;
+            gap: 4px;
         }
 
         .contact a { color: var(--mocha-peach); text-decoration: none; }
+        .contact a:hover { text-decoration: underline; }
         .contact span:nth-child(1) { color: var(--mocha-sapphire); }
         .contact span:nth-child(2) { color: var(--mocha-lavender); }
         .contact span:nth-child(3) { color: var(--mocha-yellow); }
-        .present { color: var(--latte-green); font-weight: 600; }
 
         .left-section {
             border-top: 1px solid var(--mocha-surface0);
-            padding-top: 6pt;
+            padding-top: 14px;
         }
 
         .left-label {
-            font-size: 6.5pt;
+            font-size: 8pt;
             font-weight: 700;
             letter-spacing: 0.12em;
             text-transform: uppercase;
             color: var(--mocha-mauve);
-            margin-bottom: 4pt;
+            margin-bottom: 8px;
         }
 
         .left-label::before { content: '# '; color: var(--mocha-teal); }
 
         .summary-text {
-            font-size: 7.5pt;
+            font-size: 9pt;
             color: var(--mocha-subtext1);
-            line-height: 1.45;
+            line-height: 1.6;
         }
 
         .strength {
-            font-size: 7.5pt;
+            font-size: 9pt;
             color: var(--mocha-text);
-            padding: 1pt 0;
+            padding: 2px 0;
             display: flex;
             align-items: baseline;
-            gap: 4pt;
+            gap: 6px;
         }
 
         .strength::before {
@@ -167,62 +171,60 @@
             flex-shrink: 0;
         }
 
-        .tech-group { margin-bottom: 4pt; }
+        .tech-group { margin-bottom: 8px; }
         .tech-group:last-child { margin-bottom: 0; }
 
         .tech-label {
-            font-size: 7pt;
+            font-size: 8.5pt;
             font-weight: 600;
             color: var(--mocha-blue);
-            margin-bottom: 1pt;
+            margin-bottom: 2px;
         }
 
         .tech-value {
-            font-size: 7pt;
+            font-size: 8.5pt;
             color: var(--mocha-subtext1);
-            line-height: 1.4;
+            line-height: 1.5;
         }
 
         .edu-school {
-            font-size: 8pt;
+            font-size: 9.5pt;
             font-weight: 600;
             color: var(--mocha-text);
         }
 
         .edu-detail {
-            font-size: 7pt;
+            font-size: 8.5pt;
             color: var(--mocha-subtext0);
-            margin-top: 2pt;
-            line-height: 1.45;
+            margin-top: 3px;
+            line-height: 1.5;
         }
 
         /* ---- RIGHT PANEL (Latte) ---- */
 
         .right {
             width: 70%;
-            min-height: 100%;
             background: var(--latte-base);
             color: var(--latte-text);
-            padding: 12pt 14pt;
-            overflow: hidden;
+            padding: 40px 32px;
         }
 
         .right-label {
-            font-size: 6.5pt;
+            font-size: 8pt;
             font-weight: 700;
             letter-spacing: 0.12em;
             text-transform: uppercase;
             color: var(--latte-mauve);
-            padding-bottom: 4pt;
+            padding-bottom: 8px;
             border-bottom: 1px solid var(--latte-surface0);
-            margin-bottom: 6pt;
+            margin-bottom: 20px;
         }
 
         .right-label::before { content: '# '; color: var(--latte-teal); }
 
         .job {
-            margin-bottom: 5pt;
-            padding-bottom: 5pt;
+            margin-bottom: 20px;
+            padding-bottom: 20px;
             border-bottom: 1px solid var(--latte-surface0);
         }
 
@@ -239,13 +241,13 @@
         }
 
         .job-company {
-            font-size: 9.5pt;
+            font-size: 12pt;
             font-weight: 700;
             color: var(--latte-blue);
         }
 
         .job-location {
-            font-size: 7pt;
+            font-size: 8.5pt;
             color: var(--latte-subtext0);
         }
 
@@ -253,36 +255,36 @@
             display: flex;
             justify-content: space-between;
             align-items: baseline;
-            margin-top: 1pt;
-            margin-bottom: 2pt;
+            margin-top: 2px;
+            margin-bottom: 6px;
         }
 
         .job-title {
-            font-size: 8.5pt;
+            font-size: 10pt;
             font-weight: 600;
             color: var(--latte-mauve);
         }
 
         .job-dates {
-            font-size: 7pt;
+            font-size: 8.5pt;
             color: var(--latte-subtext0);
         }
 
         .job-desc {
-            font-size: 7.5pt;
+            font-size: 9pt;
             color: var(--latte-subtext1);
-            margin-bottom: 3pt;
-            line-height: 1.3;
+            margin-bottom: 8px;
+            line-height: 1.5;
         }
 
         ul.bullets { list-style: none; }
 
         ul.bullets li {
-            font-size: 7.5pt;
+            font-size: 9pt;
             color: var(--latte-text);
-            padding: 0.5pt 0 0.5pt 11pt;
+            padding: 2px 0 2px 14px;
             position: relative;
-            line-height: 1.2;
+            line-height: 1.45;
         }
 
         ul.bullets li::before {
@@ -291,6 +293,130 @@
             font-weight: 700;
             position: absolute;
             left: 0;
+        }
+
+        .present { color: var(--latte-green); font-weight: 600; }
+
+        /* download button — web only, hidden in print */
+        .download-btn {
+            display: inline-block;
+            margin-top: 16px;
+            padding: 6px 12px;
+            font-family: 'Inconsolata', monospace;
+            font-size: 8pt;
+            font-weight: 600;
+            color: var(--mocha-base);
+            background: var(--mocha-green);
+            border: none;
+            cursor: pointer;
+            text-decoration: none;
+            letter-spacing: 0.05em;
+        }
+
+        .download-btn:hover { background: var(--mocha-teal); }
+
+        /* ======================
+           MOBILE STYLES
+           ====================== */
+
+        @media (max-width: 700px) {
+            .page { flex-direction: column; }
+
+            .left {
+                width: 100%;
+                min-height: unset;
+                height: auto;
+                position: static;
+                justify-content: flex-start;
+                padding: 32px 20px;
+            }
+
+            .right {
+                width: 100%;
+                padding: 32px 20px;
+            }
+
+            .job-top,
+            .job-mid { flex-direction: column; gap: 2px; }
+
+            .job-location,
+            .job-dates { align-self: flex-start; }
+        }
+
+        /* ======================
+           PRINT / PDF STYLES
+           WeasyPrint uses @media print
+           ====================== */
+
+        @media print {
+            @page { size: letter; margin: 0; }
+
+            body {
+                font-size: 8pt;
+                line-height: 1.3;
+                width: 8.5in;
+                height: 11in;
+                overflow: hidden;
+            }
+
+            .page {
+                width: 8.5in;
+                height: 11in;
+                overflow: hidden;
+            }
+
+            .download-btn { display: none; }
+
+            .left {
+                width: 30%;
+                min-height: 100%;
+                height: auto;
+                position: static;
+                padding: 12pt 12pt;
+                gap: 8pt;
+            }
+
+            .name { font-size: 22pt; }
+            .tagline { font-size: 8.5pt; margin-top: 4pt; }
+
+            .contact { font-size: 7pt; gap: 2pt; margin-top: 5pt; }
+
+            .left-section { padding-top: 6pt; }
+            .left-label { font-size: 6.5pt; margin-bottom: 4pt; }
+            .summary-text { font-size: 7.5pt; line-height: 1.45; }
+            .strength { font-size: 7.5pt; padding: 1pt 0; gap: 4pt; }
+            .tech-group { margin-bottom: 4pt; }
+            .tech-label { font-size: 7pt; margin-bottom: 1pt; }
+            .tech-value { font-size: 7pt; line-height: 1.4; }
+            .edu-school { font-size: 8pt; }
+            .edu-detail { font-size: 7pt; margin-top: 2pt; }
+
+            .right {
+                width: 70%;
+                min-height: 100%;
+                padding: 12pt 14pt;
+                overflow: hidden;
+            }
+
+            .right-label { font-size: 6.5pt; padding-bottom: 4pt; margin-bottom: 6pt; }
+            .job { margin-bottom: 5pt; padding-bottom: 5pt; }
+            .job-company { font-size: 9.5pt; }
+            .job-location { font-size: 7pt; }
+            .job-mid { margin-top: 1pt; margin-bottom: 2pt; }
+            .job-title { font-size: 8.5pt; }
+            .job-dates { font-size: 7pt; }
+            .job-desc { font-size: 7.5pt; margin-bottom: 3pt; line-height: 1.3; }
+
+            ul.bullets li {
+                font-size: 7.5pt;
+                padding: 0.5pt 0 0.5pt 11pt;
+                line-height: 1.2;
+            }
+
+            /* restore flex-direction for print */
+            .page { flex-direction: row; }
+            .job-top,
+            .job-mid { flex-direction: row; gap: 0; }
         }
     </style>
 </head>
@@ -308,6 +434,7 @@
                 <span>otistamp@gmail.com</span>
                 <a href="https://github.com/otistamp">github.com/otistamp</a>
             </div>
+            <a class="download-btn" href="resume.pdf" download>&#x2193; download pdf</a>
         </div>
 
         <div class="left-section">
